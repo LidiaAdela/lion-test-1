@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+		background: #fff;}
+	button 
+			{color: #fff;
+			background-color: #ff6200;
+			border-color: #ff6200;
+			border-radius: 10px;
+			border: none;
+			padding: 1em;
+			margin:1em 1em 1em 0.2em;}
+
+	lion-form {max-width:50%;}
+	input {margin:0.2em;}
+	  #lidias-token, #lidias-token-label {display:none;}
+	  .tokendisplay {height:20px;    border: 1px solid #000;}
+  </style>
+</head>
+<body>
+  <div id="demo">
+<lion-form>
+    <form id="form" action="">
+		<lion-fieldset name="nameGroup" label="Name">
+			  <lion-input-iban label="Iban" name="iban"></lion-input-iban>
+			  <lion-input-amount label="Amount" name="amount" currency="EUR"></lion-input-amount>
+			<label id="lidias-token-label" for="lidias-token">Please enter a valid Token of maximum 8 characters</label>
+			<input id="lidias-token" type="text" maxlength="8"/>
+			 <button id="lion-test-demo" class="lion-test-button">Submit</button>
+			
+		</lion-fieldset>
+    </form>
+  </lion-form>
+  </div>
+
+  <script type="module">
+    import { LitElement, html, render } from '@lion/core';
+	  import { MaxNumber, Required } from '@lion/form-core';
+	  import { loadDefaultFeedbackMessages } from '@lion/validate-messages';
+	  import { localize } from '@lion/localize';
+	  import '@lion/form/define';
+	  import '@lion/input/define';
+	  import '@lion/input-amount/define';
+	  import '@lion/input-iban/define';
+	  import '@lion/fieldset/define';
+    import '../dist/lion-test.js';
+  
+document.getElementById("lion-test-demo").onclick = function() {myFunction()};
+function myFunction() {
+ console.log("Hello");
+document.getElementById('lidias-token').style.display="block";
+document.getElementById('lidias-token-label').style.display="block";
+//document.getElementById('lidias-token').validators=${[new EqualsLength(7)]};
+/*function addInput(){
+var newInput = '<lion-input id="token" type="text" label="Please enter a valid Token"></lion-input/><br><button id="lion-test-demo-submit" class="lion-test-button">Submit</button><br>';
+   document.getElementById('form').innerHTML += newInput;  
+   num++;
+   document. getElementById("lion-test-demo"). style. display = "none";
+document.getElementById("token").validators=${[new EqualsLength(7)]}.modelValue=${'not exactly'};
+}*/
+	
+}
+
+  </script>
+</body>
+</html>
